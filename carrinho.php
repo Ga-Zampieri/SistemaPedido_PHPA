@@ -27,15 +27,10 @@ session_start()
                         while ($data = mysqli_fetch_array($result)) { ?>
 
                             <div class="card_carrinho_option">
-                                <img class="comidaImage" src="<?= $data['IMAGEM'] ?>">
-                                <p class="descricaoComida">
-                                    <?= $data['NOME'] ?>
-                                    <span>Quantidade:
-                                        <?= $data['QTDE'] ?>
-                                    </span>
-                                    <span>Valor: R$
-                                        <?= $data['VALOR'] ?>
-                                    </span>
+                                <img class="comidaImage" src="<?=$data['IMAGEM']?>">
+                                <p class="descricaoComida"><?=$data['DESCRICAO']?>
+                                    <span>Quantidade: <?=$data['QTDE']?></span>
+                                    <span>Valor: R$ <?=$data['VALOR']?></span>
                                 </p>
                             </div>
                         <?php }
@@ -44,6 +39,16 @@ session_start()
                     }
                     ?>
                 </div>
+                <a href="..\SistemaPedido_PHPA\menu.php">
+                    <button>
+                        Menu
+                    </button>
+                </a>
+                <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <button>
+                        Cardápio
+                    </button>
+                </a>
             </div>
         </div>
     </main>

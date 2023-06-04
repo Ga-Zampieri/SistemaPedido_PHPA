@@ -32,7 +32,7 @@
                                         <?= $data['VALOR'] ?>
                                     </span>
                                 </p>
-                                <a href=".\services\carrinho\add-carrinho.php?id=<?= $data['HANDLE'] ?>">
+                                <a href="..\SistemaPedido_PHPA\services\carrinho\add-carrinho.php?id=<?=$data['HANDLE']?>">
                                     <button>
                                         Adicionar ao Carrinho
                                     </button>
@@ -42,6 +42,16 @@
                     }
                     ?>
                 </div>
+                <a href="..\SistemaPedido_PHPA\menu.php">
+                    <button>
+                        Menu
+                    </button>
+                </a>
+                <a href="..\SistemaPedido_PHPA\carrinho.php">
+                    <button>
+                        Carrinho
+                    </button>
+                </a>
             </div>
         </div>
     </main>

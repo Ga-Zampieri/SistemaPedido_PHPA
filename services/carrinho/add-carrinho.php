@@ -13,9 +13,10 @@
             $valor = $produto['VALOR'];
             $qtde = 1;
             $descricao = $produto['NOME'];
+            $imagem = $produto['IMAGEM'];
         }
 
-        $mysql_query = "INSERT INTO CARRINHO (COD_USUARIO, COD_ITEM, QTDE, VALOR DESCRICAO) VALUES ('{$_SESSION['HANDLE']}', '{$handle}')";
+        $mysql_query = "INSERT INTO CARRINHO (COD_USUARIO, COD_ITEM, QTDE, VALOR, DESCRICAO, IMAGEM) VALUES ('{$_SESSION['HANDLE']}', '{$handle}', '{$qtde}', '{$valor}', '{$descricao}', '{$imagem}')";
         $result = $conn->query($mysql_query);
         if ($result)
         {
@@ -28,5 +29,5 @@
         }
     }
     mysqli_close($conn);
-    header("Location: C:\Git\ProjetosPHP\SistemaPedido_PHPA\cardapio.php?msg={msg}&msgerror={msgerror}");
+    header('Location: http://localhost/SistemaPedido_PHPA/cardapio.php');
 ?>

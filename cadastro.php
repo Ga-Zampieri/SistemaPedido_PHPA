@@ -38,7 +38,6 @@
                         <button type="submit" class="btn_sign" name="cadastrar">Cadastrar</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </main>
@@ -46,6 +45,10 @@
 
 </html>
 <?php
-if (isset($_POST['entrar']))
-    require('..\SistemaPedido_PHPA\services\sign\signScript.php');
+if (isset($_POST['cadastrar']))
+{
+    session_start();
+    $_SESSION = $_POST;
+    require("../SistemaPedido_PHPA/services/sign/newUser.php");
+}
 ?>

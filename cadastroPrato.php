@@ -21,6 +21,11 @@
                             class="form_group_input" required>
                     </div>
                     <div class="form_group">
+                        <label for="descricaoPrato">Descrição do Prato</label>
+                        <input type="text" name="descricao" id="descricaoPrato" placeholder="Digite a descrição do Prato"
+                            class="form_group_input" required>
+                    </div>
+                    <div class="form_group">
                         <label for="nomePrato">Imagem de Divulgação</label>
                         <input type="file" name="imgPrato" id="imgPrato" class="form_group_input imgPrato" required>
                     </div>
@@ -41,6 +46,11 @@
 
 </html>
 <?php
-if (isset($_POST['entrar']))
-    require('..\SistemaPedido_PHPA\services\signFood\signFoodScript.php');
+if (isset($_POST['cadastrarPrato']))
+{
+    session_start();
+    $_SESSION = $_POST;
+    unset($_POST);
+    require('..\SistemaPedido_PHPA\services\food\add-food.php');
+}
 ?>

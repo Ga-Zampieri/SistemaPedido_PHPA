@@ -37,6 +37,11 @@
                                         Adicionar ao Carrinho
                                     </button>
                                 </a>
+                                <a href="..\SistemaPedido_PHPA\services\food\delete-food.php?id=<?=$data['HANDLE']?>">
+                                    <button>
+                                        Remover Prato
+                                    </button>
+                                </a>
                             </div>
                         <?php }
                     }
@@ -50,6 +55,16 @@
                 <a href="..\SistemaPedido_PHPA\carrinho.php">
                     <button>
                         Carrinho
+                    </button>
+                </a>
+                <a href="..\SistemaPedido_PHPA\cadastroPrato.php">
+                    <button>
+                        Adicionar Prato
+                    </button>
+                </a>
+                <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <button>
+                        Meus Pedidos
                     </button>
                 </a>
             </div>

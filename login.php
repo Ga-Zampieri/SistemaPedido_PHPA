@@ -29,7 +29,7 @@
                         <button type="submit" class="btn_login" name="entrar">Entrar</button>
                     </div>
                     <div class="form_group cadastro">
-                        <a href="cadastro.html" class="btn_login_cadastro">Cadastre-se</a>
+                        <a href="cadastro.php" class="btn_login_cadastro">Cadastre-se</a>
                     </div>
                 </form>
 

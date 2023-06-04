@@ -27,7 +27,7 @@ session_start()
                     
                             <div class="card_carrinho_option">
                                 <img class="comidaImage" src="<?=$data['IMAGEM']?>">
-                                <p class="descricaoComida"><?=$data['NOME']?>
+                                <p class="descricaoComida"><?=$data['DESCRICAO']?>
                                     <span>Quantidade: <?=$data['QTDE']?></span>
                                     <span>Valor: R$ <?=$data['VALOR']?></span>
                                 </p>
@@ -39,6 +39,16 @@ session_start()
                     }
                     ?> 
                 </div>
+                <a href="..\SistemaPedido_PHPA\menu.php">
+                    <button>
+                        Menu
+                    </button>
+                </a>
+                <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <button>
+                        Cardápio
+                    </button>
+                </a>
             </div>
         </div>
     </main>

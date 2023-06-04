@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,13 +21,12 @@
                     if ($result) //executou
                     { 
                         while ($data = mysqli_fetch_array($result)) { ?>
-                    
                             <div class="card_cardapio_option">
                                 <img class="comidaImage" src="<?=$data['IMAGEM']?>">
                                 <p class="descricaoComida"><?=$data['NOME']?>
                                     <span>Valor: R$ <?=$data['VALOR']?></span>
                                 </p>
-                                <a href=".\services\carrinho\add-carrinho.php?id=<?=$data['HANDLE']?>">
+                                <a href="..\SistemaPedido_PHPA\services\carrinho\add-carrinho.php?id=<?=$data['HANDLE']?>">
                                     <button>
                                         Adicionar ao Carrinho
                                     </button>
@@ -37,6 +36,16 @@
                     }
                     ?>
                 </div>
+                <a href="..\SistemaPedido_PHPA\menu.php">
+                    <button>
+                        Menu
+                    </button>
+                </a>
+                <a href="..\SistemaPedido_PHPA\carrinho.php">
+                    <button>
+                        Carrinho
+                    </button>
+                </a>
             </div>
         </div>
     </main>

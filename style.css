@@ -42,12 +42,18 @@ h3 {
 
 .container_login,
 .container_menu,
-.container_pedido {
+.container_pedido,
+.container_sign,
+.container_signFood {
   width: 400px;
   height: 400px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: #fff;
+}
+
+.container_sign {
+  height: 500px;
 }
 
 .container_cardapio,
@@ -61,7 +67,9 @@ h3 {
 .card_menu,
 .card_pedido,
 .card_cardapio,
-.card_carrinho {
+.card_carrinho,
+.card_sign,
+.card_signFood {
   padding: 40px 20px;
 }
 
@@ -69,7 +77,9 @@ h3 {
 .card_menu_title,
 .card_pedido_title,
 .card_cardapio_title,
-.card_carrinho_title {
+.card_carrinho_title,
+.card_sign_title,
+.card_signFood_title {
   text-align: center;
 }
 
@@ -101,7 +111,9 @@ h3 {
   outline: none !important;
 }
 
-.btn_login {
+.btn_login,
+.btn_sign,
+.btn_signFood {
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -112,7 +124,9 @@ h3 {
   font-family: "Montserrat", serif;
 }
 
-.btn_login:hover {
+.btn_login:hover,
+.btn_sign:hover,
+.btn_signFood:hover {
   transform: scale(1.05);
   background-color: #f97b22;
 }
@@ -225,4 +239,20 @@ h3 {
 .card_cardapio_option > button:hover {
   transform: scale(1.05);
   background-color: #f97b22;
+}
+
+/* CADASTRO */
+
+.date {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-family: "Montserrat", serif;
+  font-weight: 700;
+}
+
+/* CADASTRO PRATO */
+
+.imgPrato {
+  border: none;
+  padding-bottom: 25px;
 }

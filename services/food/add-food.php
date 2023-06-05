@@ -1,6 +1,6 @@
 <?php
     session_start(); 
-    require_once('C:\Git\ProjetosPHP\SistemaPedido_PHPA\connection.php');
+    require_once('..\SistemaPedido_PHPA\connection.php');
     $nome = $_SESSION['nome'];
     $descricao = $_SESSION['descricao'];
     $imagem = $_SESSION['imagem'];

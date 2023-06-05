@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,45 +19,51 @@
                 <div class="card_pedido_options">
                     <ul class="card_pedido_options_list">
                         <li class="card_pedido_options_list_item">
-                            <?php 
-                                require_once('C:\Git\ProjetosPHP\SistemaPedido_PHPA\connection.php');
-                                $user = $_SESSION['HANDLE'];
-                            
-                                $sql = "SELECT * FROM PEDIDO WHERE CD_USUARIO = $user";
-                                $result = $conn->query($sql);
-                                $data = mysqli_fetch_array($result);
-                                if ($result && $data != null)
-                                {
-                                    $msg = "insert-sucess";
-                                    $msgerror = "";
-                                }
-                                else {
-                                    $msg = "insert-error";
-                                    $msgerror = $conn->error;
-                                }
-                                mysqli_close($conn);                           
+                            <?php
+                            require_once('..\SistemaPedido_PHPA\connection.php');
+                            $user = $_SESSION['HANDLE'];
+
+                            $sql = "SELECT * FROM PEDIDO WHERE CD_USUARIO = $user";
+                            $result = $conn->query($sql);
+                            $data = mysqli_fetch_array($result);
+                            if ($result && $data != null) {
+                                $msg = "insert-sucess";
+                                $msgerror = "";
+                            } else {
+                                $msg = "insert-error";
+                                $msgerror = $conn->error;
+                            }
+                            mysqli_close($conn);
                             while ($data = mysqli_fetch_array($result)) {
-                            ?>
-                            <div class="card_pedido_item"><span>Status do Pedido: <?= $data['STATUS_PEDIDO']?></span>Número do Pedido: <?= $data['HANDLE']?> <span>Valor do Pedido: <?=$data['VALOR_PEDIDO'] ?> </span></div>
-                            <?php }?>
+                                ?>
+                                <div class="card_pedido_item"><span>Status do Pedido:
+                                        <?= $data['STATUS_PEDIDO'] ?>
+                                    </span>Número do Pedido:
+                                    <?= $data['HANDLE'] ?> <span>Valor do Pedido:
+                                        <?= $data['VALOR_PEDIDO'] ?>
+                                    </span>
+                                </div>
+                            <?php } ?>
                         </li>
                     </ul>
                 </div>
-                <a href="..\SistemaPedido_PHPA\menu.php">
-                    <button>
-                        Menu
-                    </button>
-                </a>
-                <a href="..\SistemaPedido_PHPA\cardapio.php">
-                    <button>
-                        Cardápio
-                    </button>
-                </a>
-                <a href="..\SistemaPedido_PHPA\cardapio.php">
-                    <button>
-                        Carrinho
-                    </button>
-                </a>
+                <div class="pedido_options">
+                    <a href="..\SistemaPedido_PHPA\menu.php">
+                        <button>
+                            Menu
+                        </button>
+                    </a>
+                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                        <button>
+                            Cardápio
+                        </button>
+                    </a>
+                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                        <button>
+                            Carrinho
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </main>

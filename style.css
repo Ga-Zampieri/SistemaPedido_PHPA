@@ -52,7 +52,7 @@ h3 {
   background-color: #fff;
 }
 
-.container_sign {
+.container_sign, .container_signFood {
   height: 500px;
 }
 
@@ -212,6 +212,7 @@ h3 {
 }
 
 .descricaoComida {
+  margin-top: .5rem;
   display: flex;
   flex-direction: column;
 }
@@ -227,7 +228,7 @@ h3 {
   align-items: center;
 }
 
-.card_cardapio_option > button {
+.card_cardapio_option button, .cardapio_options button, .card_carrinho button, .pedido_options button {
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -235,10 +236,28 @@ h3 {
   padding: 5px;
   margin-top: 5px;
   font-family: "Montserrat", serif;
+  font-weight: 700;
 }
-.card_cardapio_option > button:hover {
+
+.cardapio_options button, .carrinho_options button {
+  width: 150px;
+  font-size: 1rem;
+}
+
+.pedido_options button {
+  width: 100px;
+}
+
+.card_cardapio_option  button:hover, .cardapio_options button:hover, .carrinho_options button:hover, .pedido_options button:hover {
   transform: scale(1.05);
   background-color: #f97b22;
+}
+
+.cardapio_options, .carrinho_options, .pedido_options {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* CADASTRO */

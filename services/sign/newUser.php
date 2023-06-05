@@ -1,6 +1,6 @@
 <?php 
     session_start();    
-    require_once('C:\Git\ProjetosPHP\SistemaPedido_PHPA\connection.php');
+    require_once('..\SistemaPedido_PHPA\connection.php');
     $nome = $_SESSION['nome'];
     $email = $_SESSION['email'];
     $senha = md5($_SESSION['senha']);

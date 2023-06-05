@@ -32,12 +32,12 @@
                                         <?= $data['VALOR'] ?>
                                     </span>
                                 </p>
-                                <a href="..\SistemaPedido_PHPA\services\carrinho\add-carrinho.php?id=<?=$data['HANDLE']?>">
+                                <a href="..\SistemaPedido_PHPA\services\carrinho\add-carrinho.php?id=<?= $data['HANDLE'] ?>">
                                     <button>
                                         Adicionar ao Carrinho
                                     </button>
                                 </a>
-                                <a href="..\SistemaPedido_PHPA\services\food\delete-food.php?id=<?=$data['HANDLE']?>">
+                                <a href="..\SistemaPedido_PHPA\services\food\delete-food.php?id=<?= $data['HANDLE'] ?>">
                                     <button>
                                         Remover Prato
                                     </button>
@@ -47,26 +47,28 @@
                     }
                     ?>
                 </div>
-                <a href="..\SistemaPedido_PHPA\menu.php">
-                    <button>
-                        Menu
-                    </button>
-                </a>
-                <a href="..\SistemaPedido_PHPA\carrinho.php">
-                    <button>
-                        Carrinho
-                    </button>
-                </a>
-                <a href="..\SistemaPedido_PHPA\cadastroPrato.php">
-                    <button>
-                        Adicionar Prato
-                    </button>
-                </a>
-                <a href="..\SistemaPedido_PHPA\cardapio.php">
-                    <button>
-                        Meus Pedidos
-                    </button>
-                </a>
+                <div class="cardapio_options">
+                    <a href="..\SistemaPedido_PHPA\menu.php">
+                        <button>
+                            Menu
+                        </button>
+                    </a>
+                    <a href="..\SistemaPedido_PHPA\carrinho.php">
+                        <button>
+                            Carrinho
+                        </button>
+                    </a>
+                    <a href="..\SistemaPedido_PHPA\cadastroPrato.php">
+                        <button>
+                            Adicionar Prato
+                        </button>
+                    </a>
+                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                        <button>
+                            Meus Pedidos
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </main>

@@ -1,6 +1,6 @@
 <?php
     session_start(); 
-    require_once('..\SistemaPedido_PHPA\connection.php');
+    require_once('..\connection.php');
     $status = "Aguardando";
     $user = $_SESSION['HANDLE'];
 
@@ -21,5 +21,5 @@
         $msgerror = $conn->error;
     }
     mysqli_close($conn);   
-    header('Location: http://localhost/SistemaPedido_PHPA/pedido.php');
+    header('Location: http://localhost/SistemaPedido_PHPA/pages/pedido.php');
 ?>

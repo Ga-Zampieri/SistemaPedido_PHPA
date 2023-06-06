@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require_once('..\SistemaPedido_PHPA\connection.php');
+    require_once('..\connection.php');
     if (isset($_GET['id']))
     {
         $handle = $_GET['id'];
@@ -17,5 +17,5 @@
         }
     }
     mysqli_close($conn);
-    header('Location: http://localhost/SistemaPedido_PHPA/carrinho.php');
+    header('Location: http://localhost/SistemaPedido_PHPA/pages/carrinho.php');
 ?>

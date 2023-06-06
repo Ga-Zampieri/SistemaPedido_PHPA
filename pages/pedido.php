@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\style.css">
     <title>Status do Pedido</title>
 </head>
 
@@ -20,7 +20,7 @@
                     <ul class="card_pedido_options_list">
                         <li class="card_pedido_options_list_item">
                             <?php
-                            require_once('..\SistemaPedido_PHPA\connection.php');
+                            require_once('..\services\connection.php');
                             $user = $_SESSION['HANDLE'];
 
                             $sql = "SELECT * FROM PEDIDO WHERE CD_USUARIO = $user";
@@ -48,17 +48,17 @@
                     </ul>
                 </div>
                 <div class="pedido_options">
-                    <a href="..\SistemaPedido_PHPA\menu.php">
+                    <a href="menu.php">
                         <button>
                             Menu
                         </button>
                     </a>
-                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <a href="cardapio.php">
                         <button>
                             Cardápio
                         </button>
                     </a>
-                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <a href="carrinho.php">
                         <button>
                             Carrinho
                         </button>

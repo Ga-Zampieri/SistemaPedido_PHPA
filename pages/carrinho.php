@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\style.css">
     <title>Carrinho</title>
 </head>
 
@@ -35,7 +35,7 @@
 
                 <div class="card_carrinho_options">
                     <?php
-                    require_once('connection.php');
+                    require_once('..\services\connection.php');
                     if (isset($_GET['ob'])) {
                         switch ($_GET['ob']) {
                             case 'nome':
@@ -73,7 +73,7 @@
                                         <?= $data['VALOR'] ?>
                                     </span>
                                 </p>
-                                <a href="..\SistemaPedido_PHPA\services\carrinho\delete-carrinho.php?id=<?= $data['HANDLE'] ?>">
+                                <a href="..\services\carrinho\delete-carrinho.php?id=<?= $data['HANDLE'] ?>">
                                     <button>
                                         Remover
                                     </button>
@@ -87,22 +87,22 @@
                 </div>
                 <div class="carrinho_options">
 
-                    <a href="..\SistemaPedido_PHPA\menu.php">
+                    <a href=".\menu.php">
                         <button>
                             Menu
                         </button>
                     </a>
-                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <a href=".\cardapio.php">
                         <button>
                             Cardápio
                         </button>
                     </a>
-                    <a href="..\SistemaPedido_PHPA\services\pedido\add-pedido.php">
+                    <a href="..\services\pedido\add-pedido.php">
                         <button>
                             Finalizar Pedido
                         </button>
                     </a>
-                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <a href=".\pedido.php">
                         <button>
                             Meus Pedidos
                         </button>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\style.css">
     <title>Cadastro de Prato - Sistema de Pedidos</title>
 </head>
 
@@ -14,7 +14,7 @@
         <div class="container_signFood">
             <div class="card_signFood">
                 <h1 class="card_signFood_title">Adicionar Prato</h1>
-                <form method="post" class="card_signFood_form">
+                <form method="post" action="..\services\food\add-food.php" class="card_signFood_form">
                     <div class="form_group">
                         <label for="nomePrato">Nome do Prato</label>
                         <input type="text" name="nome" id="nomePrato" placeholder="Digite o nome do Prato"
@@ -43,14 +43,4 @@
         </div>
     </main>
 </body>
-
 </html>
-<?php
-if (isset($_POST['cadastrarPrato']))
-{
-    session_start();
-    $_SESSION = $_POST;
-    unset($_POST);
-    require('..\SistemaPedido_PHPA\services\food\add-food.php');
-}
-?>

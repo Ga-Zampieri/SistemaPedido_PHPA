@@ -10,6 +10,18 @@
 </head>
 
 <body>
+    <button type="button" class="backButton">
+        <a href=".\cardapio.php"><img src="../img/arrow.png" alt="Back Button" /></a>
+    </button>
+    <div class="dropdown">
+        <div class="dropdown_user">
+            <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
+            <span class="dropdown_user_name">Usuário</span>
+        </div>
+        <div class="dropdown-content">
+            <a class="btn_logout">Logout</a>
+        </div>
+    </div>
     <main>
         <div class="container_signFood">
             <div class="card_signFood">
@@ -22,8 +34,8 @@
                     </div>
                     <div class="form_group">
                         <label for="descricaoPrato">Descrição do Prato</label>
-                        <input type="text" name="descricao" id="descricaoPrato" placeholder="Digite a descrição do Prato"
-                            class="form_group_input" required>
+                        <input type="text" name="descricao" id="descricaoPrato"
+                            placeholder="Digite a descrição do Prato" class="form_group_input" required>
                     </div>
                     <div class="form_group">
                         <label for="nomePrato">Imagem de Divulgação</label>
@@ -43,4 +55,5 @@
         </div>
     </main>
 </body>
+
 </html>

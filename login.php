@@ -10,6 +10,15 @@
 </head>
 
 <body>
+    <div class="dropdown">
+        <div class="dropdown_user">
+            <img src="./img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
+            <span class="dropdown_user_name">Usuário</span>
+        </div>
+        <div class="dropdown-content">
+            <a class="btn_logout">Logout</a>
+        </div>
+    </div>
     <main>
         <div class="container_login">
             <div class="card_login">
@@ -30,6 +39,8 @@
                     </div>
                     <div class="form_group cadastro">
                         <a href="..\SistemaPedido_PHPA\pages\cadastro.php" class="btn_login_cadastro">Cadastre-se</a>
+                        <a href="..\SistemaPedido_PHPA\pages\redefinir.php" class="btn_login_redefinir">Esqueci minha
+                            senha</a>
                     </div>
                 </form>
 

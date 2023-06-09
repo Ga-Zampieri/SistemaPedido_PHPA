@@ -11,6 +11,15 @@
 </head>
 
 <body>
+    <div class="dropdown">
+        <div class="dropdown_user">
+            <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
+            <span class="dropdown_user_name">Usuário</span>
+        </div>
+        <div class="dropdown-content">
+            <a class="btn_logout">Logout</a>
+        </div>
+    </div>
     <main>
         <div class="container_menu">
             <div class="card_menu">
@@ -24,6 +33,8 @@
                                     class="menu_button">PEDIDOS</button></a></li>
                         <li class="card_menu_options_list_item"><a href="carrinho.php"><button
                                     class="menu_button">CARRINHO</button></a></li>
+                        <li class="card_menu_options_list_item"><a href="avaliacao.php"><button
+                                    class="menu_button">AVALIAÇÕES</button></a></li>
                     </ul>
                 </div>
 

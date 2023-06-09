@@ -12,6 +12,18 @@
 </head>
 
 <body>
+    <button type="button" class="backButton">
+        <a href=".\cardapio.php"><img src="../img/arrow.png" alt="Back Button" /></a>
+    </button>
+    <div class="dropdown">
+        <div class="dropdown_user">
+            <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
+            <span class="dropdown_user_name">Usuário</span>
+        </div>
+        <div class="dropdown-content">
+            <a class="btn_logout">Logout</a>
+        </div>
+    </div>
     <main>
         <div class="container_carrinho">
             <div class="card_carrinho">

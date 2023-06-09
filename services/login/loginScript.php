@@ -3,7 +3,7 @@ if(isset($_POST['entrar'])){
     $email = $_POST['email'];    
     $senha = md5($_POST['senha']);    
 
-    require_once('..\SistemaPedido_PHPA\connection.php');
+    require_once('..\SistemaPedido_PHPA\services\connection.php');
     $mysql_query = "SELECT * FROM USUARIO WHERE EMAIL = '{$email}' AND SENHA = '{$senha}'";
     $result = $conn->query($mysql_query);
     $data = mysqli_fetch_array($result);
@@ -12,7 +12,7 @@ if(isset($_POST['entrar'])){
         if ($data['EMAIL'] == $email && $data['SENHA'] == $senha && $data['ATIVO'] == "S"){
             session_start();
             $_SESSION = $data;
-            header('Location: .\menu.php');
+            header('Location: ..\SISTEMAPEDIDO_PHPA\pages\menu.php');
         }
         elseif ($data['EMAIL'] == $email && $data['SENHA'] != $senha){
             echo "Senha incorreta";

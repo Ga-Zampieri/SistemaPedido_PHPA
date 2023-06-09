@@ -1,10 +1,13 @@
 <?php
-    session_start(); 
-    require_once('..\SistemaPedido_PHPA\connection.php');
-    $nome = $_SESSION['nome'];
-    $descricao = $_SESSION['descricao'];
-    $imagem = $_SESSION['imagem'];
-    $valor = $_SESSION['valor'];
+session_start(); 
+if (isset($_POST['cadastrarPrato']))
+{
+    $_POST;
+    require_once('..\connection.php');
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
+    $imagem = $_POST['imgPrato'];
+    $valor = $_POST['valorPrato'];
 
     $mysql_query = "INSERT INTO CARDAPIO (NOME, DESCRICAO, VALOR, IMAGEM) VALUES ('{$nome}', '{$descricao}', '{$valor}', '{$imagem}')";
     $result = $conn->query($mysql_query);
@@ -18,5 +21,7 @@
         $msgerror = $conn->error;
     }
     mysqli_close($conn);   
-    header('Location: http://localhost/SistemaPedido_PHPA/cardapio.php');
+    header('Location: http://localhost/SistemaPedido_PHPA/pages/cardapio.php');
+}
+
 ?>

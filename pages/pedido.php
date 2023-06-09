@@ -6,11 +6,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\style.css">
     <title>Status do Pedido</title>
 </head>
 
 <body>
+    <button type="button" class="backButton">
+        <a href=".\menu.php"><img src="../img/arrow.png" alt="Back Button" /></a>
+    </button>
+    <div class="dropdown">
+        <div class="dropdown_user">
+            <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
+            <span class="dropdown_user_name">Usuário</span>
+        </div>
+        <div class="dropdown-content">
+            <a class="btn_logout">Logout</a>
+        </div>
+    </div>
     <main>
         <div class="container_pedido">
             <div class="card_pedido">
@@ -20,7 +32,7 @@
                     <ul class="card_pedido_options_list">
                         <li class="card_pedido_options_list_item">
                             <?php
-                            require_once('..\SistemaPedido_PHPA\connection.php');
+                            require_once('..\services\connection.php');
                             $user = $_SESSION['HANDLE'];
 
                             $sql = "SELECT * FROM PEDIDO WHERE CD_USUARIO = $user";
@@ -48,17 +60,17 @@
                     </ul>
                 </div>
                 <div class="pedido_options">
-                    <a href="..\SistemaPedido_PHPA\menu.php">
+                    <a href="menu.php">
                         <button>
                             Menu
                         </button>
                     </a>
-                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <a href="cardapio.php">
                         <button>
                             Cardápio
                         </button>
                     </a>
-                    <a href="..\SistemaPedido_PHPA\cardapio.php">
+                    <a href="carrinho.php">
                         <button>
                             Carrinho
                         </button>

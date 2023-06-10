@@ -23,12 +23,16 @@ if (!isset($_SESSION['NOME']))
                 <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
                 <a href="./perfil.php">
                     <span class="dropdown_user_name">
-                    <?php
-if (isset($_SESSION['NOME'])) {
-    echo $_SESSION['NOME'];
-} else
-    echo "Login";
-?>
+                        <?php 
+                            if (isset($_SESSION['NOME']))
+                            {
+                                if (strlen($_SESSION['NOME']) > 7)
+                                    echo substr($_SESSION['NOME'], 0, 7)."...";
+                                else
+                                    echo $_SESSION['NOME'];
+                            } else
+                                echo "Login";
+                        ?>  
                 </span>
             </a>
         </div>

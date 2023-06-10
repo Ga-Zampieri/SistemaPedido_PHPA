@@ -29,10 +29,13 @@ $handlePrato = $_GET['id'];
                     <?php 
                         if (isset($_SESSION['NOME']))
                         {
-                            echo $_SESSION['NOME'];
+                            if (strlen($_SESSION['NOME']) > 7)
+                                echo substr($_SESSION['NOME'], 0, 7)."...";
+                            else
+                                echo $_SESSION['NOME'];
                         } else
                             echo "Login";
-                        ?>  
+                    ?>  
                 </span>
             </a>
         </div>

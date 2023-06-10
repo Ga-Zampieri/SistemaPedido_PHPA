@@ -26,10 +26,13 @@ if (!isset($_SESSION['NOME']))
                     <?php 
                         if (isset($_SESSION['NOME']))
                         {
-                            echo $_SESSION['NOME'];
+                            if (strlen($_SESSION['NOME']) > 7)
+                                echo substr($_SESSION['NOME'], 0, 7)."...";
+                            else
+                                echo $_SESSION['NOME'];
                         } else
                             echo "Login";
-                        ?>  
+                    ?>    
                 </span>
             </a>
         </div>
@@ -79,8 +82,7 @@ if (!isset($_SESSION['NOME']))
                         $sql_query = "  SELECT
                                             A.NOTA          AS  NOTA,
                                             A.COMENTARIO    AS  COMENTARIO,
-                                            U.NOME          AS  NOME_USUARIO,
-                                            U.IMAGEM        AS  IMAGEM_USUARIO
+                                            U.NOME          AS  NOME_USUARIO
                     
                                         FROM AVALIACOES A
                                         JOIN USUARIO U ON (U.HANDLE = A.COD_USUARIO)
@@ -93,8 +95,7 @@ if (!isset($_SESSION['NOME']))
                         while ($data = mysqli_fetch_array($result)) {
                     ?>
                         <div class="avaliacoes_feitas_item">
-                            <!-- select instruction ++ while -->
-                            <img src="<?=$data['IMAGEM_USUARIO']?>" alt="Avatar Pessoa" class="user_img">
+                            <img src="../img/person.png" alt="Avatar Pessoa" class="user_img">
                             <p class="user_name"><?=$data['NOME_USUARIO']?></p>
                             <p class="user_nota">Nota: <span class="user_nota_numero"><?=$data['NOTA']?></span></p>
                             <p class="user_comentario"><?=$data['COMENTARIO']?></p>

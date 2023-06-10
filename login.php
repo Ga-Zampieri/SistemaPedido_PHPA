@@ -13,10 +13,14 @@
     <div class="dropdown">
         <div class="dropdown_user">
             <img src="./img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
-            <span class="dropdown_user_name">Usuário</span>
-        </div>
-        <div class="dropdown-content">
-            <a class="btn_logout">Logout</a>
+            <span class="dropdown_user_name">
+                <?php 
+                if (isset($_SESSION['NOME']))
+                {
+                    echo $_SESSION['NOME'];
+                } else
+                    echo "Login";
+            ?></span>
         </div>
     </div>
     <main>

@@ -1,3 +1,11 @@
+<?php 
+session_start();
+if (!isset($_SESSION['NOME']))
+{
+    header('Location: http://localhost/SISTEMAPEDIDO_PHPA/login.php');
+}
+$handlePrato = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,25 +24,35 @@
     <div class="dropdown">
         <div class="dropdown_user">
             <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
-            <span class="dropdown_user_name">Usuário</span>
+            <a href="./perfil.php">
+                <span class="dropdown_user_name">
+                    <?php 
+                        if (isset($_SESSION['NOME']))
+                        {
+                            echo $_SESSION['NOME'];
+                        } else
+                            echo "Login";
+                        ?>  
+                </span>
+            </a>
         </div>
         <div class="dropdown-content">
-            <a class="btn_logout">Logout</a>
+            <a class="btn_logout" href="../services/login/logoutScript.php">Logout</a>
         </div>
     </div>
     <main>
         <div class="container_resignFood">
             <div class="card_resignFood">
                 <h1 class="card_resignFood_title">Atualizar Prato</h1>
-                <form method="post" action="..\services\food\add-food.php" class="card_resignFood_form">
+                <form method="post" action="..\services\food\update-food.php?id=<?=$handlePrato?>" class="card_resignFood_form">
                     <div class="form_group">
                         <label for="novoNomePrato">Novo nome do Prato</label>
-                        <input type="text" name="novoNome" id="novoNomePrato" placeholder="Digite o novo nome do Prato"
+                        <input type="text" name="novoNomePrato" id="novoNomePrato" placeholder="Digite o novo nome do Prato"
                             class="form_group_input" required>
                     </div>
                     <div class="form_group">
                         <label for="novaDescricaoPrato">Nova Descrição do Prato</label>
-                        <input type="text" name="novaDescricao" id="novaDescricaoPrato"
+                        <input type="text" name="novaDescricaoPrato" id="novaDescricaoPrato"
                             placeholder="Digite a nova descrição do Prato" class="form_group_input" required>
                     </div>
                     <div class="form_group">

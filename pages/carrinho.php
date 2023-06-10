@@ -1,4 +1,7 @@
-<?php session_start();
+<?php 
+session_start();
+if (!isset($_SESSION['NOME']))
+    header('Location: http://localhost/SISTEMAPEDIDO_PHPA/login.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +21,20 @@
     <div class="dropdown">
         <div class="dropdown_user">
             <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
-            <span class="dropdown_user_name">Usuário</span>
+            <a href="./perfil.php">
+                <span class="dropdown_user_name">
+                    <?php 
+                        if (isset($_SESSION['NOME']))
+                        {
+                            echo $_SESSION['NOME'];
+                        } else
+                            echo "Login";
+                        ?>  
+                </span>
+            </a>
         </div>
         <div class="dropdown-content">
-            <a class="btn_logout">Logout</a>
+            <a class="btn_logout" href="../services/login/logoutScript.php">Logout</a>
         </div>
     </div>
     <main>
@@ -71,8 +84,7 @@
                         $mysql_query = "SELECT * FROM CARRINHO WHERE COMPRADO = 'N' AND COD_USUARIO = '{$_SESSION['HANDLE']}'";
                     }
                     $result = $conn->query($mysql_query);
-                    $data = mysqli_fetch_array($result);
-                    if ($result && $data != null) {
+                    if ($result) {
                         while ($data = mysqli_fetch_array($result)) { ?>
                             <div class="card_carrinho_option">
                                 <img class="comidaImage" src="<?= $data['IMAGEM'] ?>">
@@ -92,8 +104,6 @@
                                 </a>
                             </div>
                         <?php }
-                    } else {
-                        echo "Não tem nada no carrinho";
                     }
                     ?>
                 </div>

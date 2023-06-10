@@ -1,3 +1,8 @@
+<?php 
+session_start();
+if (!isset($_SESSION['NOME']))
+    header('Location: http://localhost/SISTEMAPEDIDO_PHPA/login.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,17 +21,27 @@
     <div class="dropdown">
         <div class="dropdown_user">
             <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
-            <span class="dropdown_user_name">Usuário</span>
+            <a href="./perfil.php">
+                <span class="dropdown_user_name">
+                    <?php 
+                        if (isset($_SESSION['NOME']))
+                        {
+                            echo $_SESSION['NOME'];
+                        } else
+                            echo "Login";
+                        ?>  
+                </span>
+            </a>
         </div>
         <div class="dropdown-content">
-            <a class="btn_logout">Logout</a>
+            <a class="btn_logout" href="../services/login/logoutScript.php">Logout</a>
         </div>
     </div>
     <main>
         <div class="container_feedback">
             <div class="card_feedback">
                 <h1 class="card_feedback_title">Faça uma avaliação</h1>
-                <form method="post" class="card_feedback_form">
+                <form method="post" action="../services/avaliacoes/add-avaliacao.php" class="card_feedback_form">
                     <div class="form_group avaliacao">
                         <p class="description_nota">Nota de Avaliação:</p>
                         <div class="nota">
@@ -52,37 +67,39 @@
                     </div>
                     <div class="form_group comentario">
                         <label for="comentario">Comentário</label>
-                        <textarea name="textarea" rows="5" cols="30">Escreva um comentário.</textarea>
+                        <textarea name="comentario" rows="5" cols="30" placeholder="Escreva um comentário."></textarea>
                     </div>
                     <div class="form_group entrar">
                         <button type="submit" class="btn_sign" name="avaliar">Avaliar</button>
                     </div>
                 </form>
                 <div class="avaliacoes_feitas">
-                    <div class="avaliacoes_feitas_item">
-                        <img src="../img/person.png" alt="Avatar Pessoa" class="user_img">
-                        <p class="user_name">Fulano</p>
-                        <p class="user_nota">Nota: <span class="user_nota_numero">5</span></p>
-                        <p class="user_comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                            praesentium pariatur laborum consequatur necessitatibus aperiam iure et atque non suscipit,
-                            quod reprehenderit voluptate, vitae error repellendus amet aliquam? Sint, perferendis.</p>
-                    </div>
-                    <div class="avaliacoes_feitas_item">
-                        <img src="../img/person.png" alt="Avatar Pessoa" class="user_img">
-                        <p class="user_name">Fulano</p>
-                        <p class="user_nota">Nota: <span class="user_nota_numero">5</span></p>
-                        <p class="user_comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                            praesentium pariatur laborum consequatur necessitatibus aperiam iure et atque non suscipit,
-                            quod reprehenderit voluptate, vitae error repellendus amet aliquam? Sint, perferendis.</p>
-                    </div>
-                    <div class="avaliacoes_feitas_item">
-                        <img src="../img/person.png" alt="Avatar Pessoa" class="user_img">
-                        <p class="user_name">Fulano</p>
-                        <p class="user_nota">Nota: <span class="user_nota_numero">5</span></p>
-                        <p class="user_comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                            praesentium pariatur laborum consequatur necessitatibus aperiam iure et atque non suscipit,
-                            quod reprehenderit voluptate, vitae error repellendus amet aliquam? Sint, perferendis.</p>
-                    </div>
+                    <?php
+                        require_once('../services/connection.php');
+                        $sql_query = "  SELECT
+                                            A.NOTA          AS  NOTA,
+                                            A.COMENTARIO    AS  COMENTARIO,
+                                            U.NOME          AS  NOME_USUARIO,
+                                            U.IMAGEM        AS  IMAGEM_USUARIO
+                    
+                                        FROM AVALIACOES A
+                                        JOIN USUARIO U ON (U.HANDLE = A.COD_USUARIO)
+                                        
+                                        ORDER BY 
+                                            A.HANDLE DESC
+                                        
+                                        LIMIT 3";
+                        $result = $conn->query($sql_query);
+                        while ($data = mysqli_fetch_array($result)) {
+                    ?>
+                        <div class="avaliacoes_feitas_item">
+                            <!-- select instruction ++ while -->
+                            <img src="<?=$data['IMAGEM_USUARIO']?>" alt="Avatar Pessoa" class="user_img">
+                            <p class="user_name"><?=$data['NOME_USUARIO']?></p>
+                            <p class="user_nota">Nota: <span class="user_nota_numero"><?=$data['NOTA']?></span></p>
+                            <p class="user_comentario"><?=$data['COMENTARIO']?></p>
+                        </div>
+                    <?php  } ?>
                 </div>
             </div>
         </div>

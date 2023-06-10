@@ -63,7 +63,7 @@ if (!isset($_SESSION['NOME']))
                                 ?>
                                 <div class="card_pedido_item"><span>Status do Pedido:
                                         <?= $data['STATUS_PEDIDO'] ?>
-                                    </span>Número do Pedido:
+                                    </span>Número do Pedido:<br>
                                     <?= $data['HANDLE'] ?> <span>Valor do Pedido:
                                         <?= $data['VALOR_PEDIDO'] ?>
                                     </span>

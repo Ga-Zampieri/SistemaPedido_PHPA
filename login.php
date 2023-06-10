@@ -42,8 +42,8 @@
                         <button type="submit" class="btn_login" name="entrar">Entrar</button>
                     </div>
                     <div class="form_group cadastro">
-                        <a href="..\SistemaPedido_PHPA\pages\cadastro.php" class="btn_login_cadastro">Cadastre-se</a>
-                        <a href="..\SistemaPedido_PHPA\pages\redefinir.php" class="btn_login_redefinir">Esqueci minha
+                        <a href=".\pages\cadastro.php" class="btn_login_cadastro">Cadastre-se</a>
+                        <a href=".\pages\redefinir.php" class="btn_login_redefinir">Esqueci minha
                             senha</a>
                     </div>
                 </form>
@@ -56,5 +56,5 @@
 </html>
 <?php
 if (isset($_POST['entrar']))
-    require('..\SistemaPedido_PHPA\services\login\loginScript.php');
+    require('.\services\login\loginScript.php');
 ?>

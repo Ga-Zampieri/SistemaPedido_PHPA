@@ -1,12 +1,11 @@
 <?php 
-    session_start();    
-    require_once('..\services\connection.php');
-    $nome = $_SESSION['nome'];
-    $email = $_SESSION['email'];
-    $senha = md5($_SESSION['senha']);
-    $dt_nasc = $_SESSION['dataNascimento'];
+    require_once('..\connection.php');
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = md5($_POST['senha']);
+    $dt_nasc = $_POST['dataNascimento'];
 
-    $mysql_query = "INSERT INTO USUARIO (NOME, EMAIL, SENHA, CD_TIPO_USUARIO, ATIVO) VALUES ('{$nome}', '{$email}', '{$senha}', '1', 'S')";
+    $mysql_query = "INSERT INTO USUARIO (NOME, EMAIL, SENHA, DT_NASCIMENTO, CD_TIPO_USUARIO, ATIVO) VALUES ('{$nome}', '{$email}', '{$senha}', '{$dt_nasc}', '1', 'S')";
     $result = $conn->query($mysql_query);
     if ($result)
     {
@@ -15,7 +14,7 @@
     }
     else {
         $msg = "insert-error";
-        $msgerror = $conn->error;
+        $msgerror = $conn->error;   
     }
     mysqli_close($conn);
     header('Location: http://localhost/SistemaPedido_PHPA/login.php');

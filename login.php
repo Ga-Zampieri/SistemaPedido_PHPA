@@ -13,10 +13,18 @@
     <div class="dropdown">
         <div class="dropdown_user">
             <img src="./img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
-            <span class="dropdown_user_name">Usuário</span>
-        </div>
-        <div class="dropdown-content">
-            <a class="btn_logout">Logout</a>
+            <span class="dropdown_user_name">
+                <?php 
+                    if (isset($_SESSION['NOME']))
+                    {
+                        if (strlen($_SESSION['NOME']) > 7)
+                            echo substr($_SESSION['NOME'], 0, 7)."...";
+                        else
+                            echo $_SESSION['NOME'];
+                    } else
+                        echo "Login";
+                ?>  
+            </span>
         </div>
     </div>
     <main>
@@ -38,8 +46,8 @@
                         <button type="submit" class="btn_login" name="entrar">Entrar</button>
                     </div>
                     <div class="form_group cadastro">
-                        <a href="..\SistemaPedido_PHPA\pages\cadastro.php" class="btn_login_cadastro">Cadastre-se</a>
-                        <a href="..\SistemaPedido_PHPA\pages\redefinir.php" class="btn_login_redefinir">Esqueci minha
+                        <a href=".\pages\cadastro.php" class="btn_login_cadastro">Cadastre-se</a>
+                        <a href=".\pages\redefinir.php" class="btn_login_redefinir">Esqueci minha
                             senha</a>
                     </div>
                 </form>
@@ -52,5 +60,5 @@
 </html>
 <?php
 if (isset($_POST['entrar']))
-    require('..\SistemaPedido_PHPA\services\login\loginScript.php');
+    require('.\services\login\loginScript.php');
 ?>

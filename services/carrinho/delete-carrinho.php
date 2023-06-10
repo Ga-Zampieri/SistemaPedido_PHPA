@@ -1,21 +1,26 @@
 <?php 
-    session_start();
-    require_once('..\connection.php');
-    if (isset($_GET['id']))
+    session_start();  
+    if (!isset($_SESSION['NOME']))
+        header('Location: http://localhost/SISTEMAPEDIDO_PHPA/login.php');
+    else
     {
-        $handle = $_GET['id'];
-        $mysql_query = "DELETE FROM CARRINHO WHERE HANDLE = '{$handle}'";
-        $result = $conn->query($mysql_query);
-        if ($result)
+        require_once('..\connection.php');
+        if (isset($_GET['id']))
         {
-            $msg = "delete-sucess";
-            $msgerror = "";
+            $handle = $_GET['id'];
+            $mysql_query = "DELETE FROM CARRINHO WHERE HANDLE = '{$handle}'";
+            $result = $conn->query($mysql_query);
+            if ($result)
+            {
+                $msg = "delete-sucess";
+                $msgerror = "";
+            }
+            else {
+                $msg = "delete-error";
+                $msgerror = $conn->error;
+            }
         }
-        else {
-            $msg = "delete-error";
-            $msgerror = $conn->error;
-        }
+        mysqli_close($conn);
+        header('Location: http://localhost/SistemaPedido_PHPA/pages/carrinho.php');
     }
-    mysqli_close($conn);
-    header('Location: http://localhost/SistemaPedido_PHPA/pages/carrinho.php');
 ?>

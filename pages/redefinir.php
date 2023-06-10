@@ -16,17 +16,30 @@
     <div class="dropdown">
         <div class="dropdown_user">
             <img src="../img/avatar.png" class="dropdown_user_image" alt="User Avatar" />
-            <span class="dropdown_user_name">Usuário</span>
+            <a href="./perfil.php">
+                <span class="dropdown_user_name">
+                    <?php 
+                        if (isset($_SESSION['NOME']))
+                        {
+                            if (strlen($_SESSION['NOME']) > 7)
+                                echo substr($_SESSION['NOME'], 0, 7)."...";
+                            else
+                                echo $_SESSION['NOME'];
+                        } else
+                            echo "Login";
+                    ?>    
+                </span>
+            </a>
         </div>
         <div class="dropdown-content">
-            <a class="btn_logout">Logout</a>
+            <a class="btn_logout" href="../services/login/logoutScript.php">Logout</a>
         </div>
     </div>
     <main>
         <div class="container_redefine">
             <div class="card_redefine">
                 <h1 class="card_redefine_title">Redefinir Senha</h1>
-                <form method="post" class="card_redefine_form">
+                <form method="post" action="../services/sign/changePassword.php" class="card_redefine_form">
                     <div class="form_group">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" placeholder="Digite seu email"
@@ -52,10 +65,3 @@
 </body>
 
 </html>
-<?php
-if (isset($_POST['cadastrar'])) {
-    session_start();
-    $_SESSION = $_POST;
-    require("../services/sign/newUser.php");
-}
-?>
